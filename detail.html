@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>設計詳情</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .detail { max-width: 600px; margin: 2rem auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 5px rgba(0,0,0,0.1); }
+    .detail img { width: 100%; display: block; }
+    .detail .text { padding: 1rem; font-size: 1rem; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div class="detail">
+    <img id="img" src="" alt="設計圖片" />
+    <div class="text">
+      <h2 id="title">設計名稱</h2>
+      <p id="desc">這裡是設計的說明。</p>
+    </div>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const title = params.get("title") || "無標題";
+    const img = params.get("img") || "";
+    const desc = params.get("desc") || "無說明";
+    document.getElementById("title").textContent = title;
+    document.getElementById("img").src = decodeURIComponent(img);
+    document.getElementById("desc").textContent = desc;
+  </script>
+</body>
+</html>
